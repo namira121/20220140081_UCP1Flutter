@@ -33,6 +33,7 @@ class _LoginPageState extends State<LoginPage> {
                 Text('Selamat Datang Kembali'),
               ],
             ),
+            const SizedBox(height: 75,),
             Column(
               mainAxisAlignment: MainAxisAlignment.start,
               crossAxisAlignment: CrossAxisAlignment.start,
@@ -48,6 +49,7 @@ class _LoginPageState extends State<LoginPage> {
                     return null;
                   },              
                 ),
+                const SizedBox(height: 10,),
                 Text('Password'),
                 TextFormField(
                   controller: passwordController,
@@ -63,6 +65,7 @@ class _LoginPageState extends State<LoginPage> {
                 
               ],
             ),
+            const SizedBox(height: 20,),
             Column(
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
