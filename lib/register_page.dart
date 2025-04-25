@@ -44,7 +44,7 @@ class _RegisterPageState extends State<RegisterPage> {
                     controller: namaController,
                     decoration: const InputDecoration(
                       labelText: 'Nama Lengkap',
-                      icon: Icon(Icons.person)),
+                      icon: Icon(Icons.person),),
                     validator: (value) {
                       if (value == null || value.isEmpty){
                         return 'Nama tidak boleh kosong';
@@ -54,10 +54,12 @@ class _RegisterPageState extends State<RegisterPage> {
                   )
                 ],
               ),
+              const SizedBox(height: 15,),
               Row(
+                mainAxisAlignment: MainAxisAlignment.spaceAround,
                 children: [
-                  Text('Email')
-                  
+                  Text('Email'),
+                  Text('No.Hp')
                 ],
               )
             ],
