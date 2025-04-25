@@ -43,7 +43,9 @@ class _LoginPageState extends State<LoginPage> {
                 Text('Email'),
                 TextFormField(
                   controller: emailController,
-                  decoration: const InputDecoration(labelText: 'Enter your email'),
+                  decoration: const InputDecoration(
+                    labelText: 'Enter your email', 
+                    icon: Icon(Icons.email)),
                   validator: (value){
                     if (value == null || value.isEmpty) {
                       return 'Please enter your email';
@@ -56,7 +58,9 @@ class _LoginPageState extends State<LoginPage> {
                 TextFormField(
                   controller: passwordController,
                   obscureText: true,
-                  decoration: const InputDecoration(labelText: 'Enter your password'),
+                  decoration: const InputDecoration(
+                    labelText: 'Enter your password',
+                    icon: Icon(Icons.lock)),
                   validator: (value){
                     if (value == null || value.isEmpty) {
                       return 'Please enter your email';
