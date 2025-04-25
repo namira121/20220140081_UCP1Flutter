@@ -60,6 +60,12 @@ class _LoginPageState extends State<LoginPage> {
                     return null;
                   },              
                 ),
+                
+              ],
+            ),
+            Column(
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: [
                 ElevatedButton(onPressed: (){
                   if(_formkey.currentState!.validate()){
                     Navigator.pushReplacement(
@@ -73,7 +79,7 @@ class _LoginPageState extends State<LoginPage> {
                   
                 }, child: Text('Belum memiliki akun? Daftar disini'))
               ],
-            ),
+            )
             
           ],
         ),
