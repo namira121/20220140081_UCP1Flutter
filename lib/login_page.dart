@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:ucp1_081/home_page.dart';
 
 class LoginPage extends StatefulWidget {
   const LoginPage({super.key});
@@ -42,7 +43,16 @@ class _LoginPageState extends State<LoginPage> {
                 }
                 return null;
               },              
-            )
+            ),
+            ElevatedButton(onPressed: (){
+              if(_formkey.currentState!.validate()){
+                Navigator.pushReplacement(
+                  context, 
+                  MaterialPageRoute(
+                    builder: (context) => 
+                    HomePage(email: emailController.text)));
+              }
+            }, child: Text('Masuk'))
           ],
         ),),
     );
