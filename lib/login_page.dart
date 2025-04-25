@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:ucp1_081/home_page.dart';
+import 'package:ucp1_081/register_page.dart';
 
 class LoginPage extends StatefulWidget {
   const LoginPage({super.key});
@@ -30,10 +31,11 @@ class _LoginPageState extends State<LoginPage> {
                   radius: 50,
                   backgroundImage: AssetImage('assets/images/pompompurin.png'),
                 ),
-                Text('Selamat Datang Kembali'),
+                const SizedBox(height: 10),
+                Text('Selamat Datang Kembali!', style: TextStyle(fontSize: 20),),
               ],
             ),
-            const SizedBox(height: 75,),
+            const SizedBox(height: 50,),
             Column(
               mainAxisAlignment: MainAxisAlignment.start,
               crossAxisAlignment: CrossAxisAlignment.start,
@@ -79,7 +81,8 @@ class _LoginPageState extends State<LoginPage> {
                   }
                 }, child: Text('Masuk')),
                 TextButton(onPressed: (){
-                  
+                  Navigator.push(context,
+                  MaterialPageRoute(builder: (context) => const RegisterPage()));
                 }, child: Text('Belum memiliki akun? Daftar disini'))
               ],
             )
