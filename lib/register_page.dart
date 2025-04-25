@@ -35,12 +35,29 @@ class _RegisterPageState extends State<RegisterPage> {
                 Text('Daftar Akun Baru', style: TextStyle(fontSize: 20),),
               ],
               ),
+              const SizedBox(height: 15),
               Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text('Nama Lengkap'),
                   TextFormField(
-
+                    controller: namaController,
+                    decoration: const InputDecoration(
+                      labelText: 'Nama Lengkap',
+                      icon: Icon(Icons.person)),
+                    validator: (value) {
+                      if (value == null || value.isEmpty){
+                        return 'Nama tidak boleh kosong';
+                      }
+                      return null;
+                    },
                   )
+                ],
+              ),
+              Row(
+                children: [
+                  Text('Email')
+                  
                 ],
               )
             ],
