@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:ucp1_081/home_page.dart';
 
 class RegisterPage extends StatefulWidget {
   const RegisterPage({super.key});
@@ -108,6 +109,19 @@ class _RegisterPageState extends State<RegisterPage> {
                   ),
                 ],
               ),
+              Column(
+                children: [
+                  ElevatedButton(
+                    onPressed: (){
+                      Navigator.pushReplacement(
+                      context, 
+                      MaterialPageRoute(
+                        builder: (context) => 
+                        HomePage(email: emailController.text)));
+                    }, child: Text('Daftar'))
+                ],
+              ),
+
               const SizedBox(height: 15,),
               
             ],
