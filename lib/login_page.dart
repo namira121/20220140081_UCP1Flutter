@@ -27,13 +27,15 @@ class _LoginPageState extends State<LoginPage> {
             Column(
               children: [
                 CircleAvatar(
-                  backgroundImage: AssetImage(''),
+                  radius: 50,
+                  backgroundImage: AssetImage('assets/images/pompompurin.png'),
                 ),
                 Text('Selamat Datang Kembali'),
               ],
             ),
             Column(
               mainAxisAlignment: MainAxisAlignment.start,
+              crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text('Email'),
                 TextFormField(
