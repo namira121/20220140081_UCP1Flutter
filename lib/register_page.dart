@@ -64,6 +64,33 @@ class _RegisterPageState extends State<RegisterPage> {
                       }
                       return null;
                     },
+                  ),
+                  Text('Nomor Hp'),
+                  TextFormField(
+                    controller: nomorController,
+                    decoration: const InputDecoration(
+                      labelText: 'Nomor Hp',
+                      icon: Icon(Icons.phone),),
+                    validator: (value) {
+                      if (value == null || value.isEmpty){
+                        return 'No Hp tidak boleh kosong';
+                      }
+                      return null;
+                    },
+                  ),
+                  Text('Password'),
+                  TextFormField(
+                    controller: namaController,
+                    decoration: const InputDecoration(
+                      labelText: 'Password',
+                      icon: Icon(Icons.lock),),
+                    obscureText: true,
+                    validator: (value) {
+                      if (value == null || value.isEmpty){
+                        return 'Password tidak boleh kosong';
+                      }
+                      return null;
+                    },
                   )
                 ],
               ),
