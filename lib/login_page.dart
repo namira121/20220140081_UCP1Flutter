@@ -24,39 +24,54 @@ class _LoginPageState extends State<LoginPage> {
           Column(
             mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Image(image: AssetImage('assets/images/pompompurin.png')),
-            Text('Selamat Datang Kembali'),
-            Text('Email'),
-            TextFormField(
-              controller: emailController,
-              decoration: const InputDecoration(labelText: 'Enter your email'),
-              validator: (value){
-                if (value == null || value.isEmpty) {
-                  return 'Please enter your email';
-                }
-                return null;
-              },              
+            Column(
+              children: [
+                CircleAvatar(
+                  backgroundImage: AssetImage(''),
+                ),
+                Text('Selamat Datang Kembali'),
+              ],
             ),
-            Text('Password'),
-            TextFormField(
-              controller: passwordController,
-              decoration: const InputDecoration(labelText: 'Enter your password'),
-              validator: (value){
-                if (value == null || value.isEmpty) {
-                  return 'Please enter your email';
-                }
-                return null;
-              },              
+            Column(
+              mainAxisAlignment: MainAxisAlignment.start,
+              children: [
+                Text('Email'),
+                TextFormField(
+                  controller: emailController,
+                  decoration: const InputDecoration(labelText: 'Enter your email'),
+                  validator: (value){
+                    if (value == null || value.isEmpty) {
+                      return 'Please enter your email';
+                    }
+                    return null;
+                  },              
+                ),
+                Text('Password'),
+                TextFormField(
+                  controller: passwordController,
+                  obscureText: true,
+                  decoration: const InputDecoration(labelText: 'Enter your password'),
+                  validator: (value){
+                    if (value == null || value.isEmpty) {
+                      return 'Please enter your email';
+                    }
+                    return null;
+                  },              
+                ),
+                ElevatedButton(onPressed: (){
+                  if(_formkey.currentState!.validate()){
+                    Navigator.pushReplacement(
+                      context, 
+                      MaterialPageRoute(
+                        builder: (context) => 
+                        HomePage(email: emailController.text)));
+                  }
+                }, child: Text('Masuk')),
+                TextButton(onPressed: (){
+                  
+                }, child: Text('Belum memiliki akun? Daftar disini'))
+              ],
             ),
-            ElevatedButton(onPressed: (){
-              if(_formkey.currentState!.validate()){
-                Navigator.pushReplacement(
-                  context, 
-                  MaterialPageRoute(
-                    builder: (context) => 
-                    HomePage(email: emailController.text)));
-              }
-            }, child: Text('Masuk')),
             
           ],
         ),
