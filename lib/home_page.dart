@@ -15,8 +15,9 @@ class _HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Padding(
-        padding: EdgeInsets.all(16.0),
+        padding: EdgeInsets.all(0),
         child: Column(
+          crossAxisAlignment: CrossAxisAlignment.center,
           children: [
             Container(
               padding: EdgeInsets.only(top: 70),
@@ -24,6 +25,7 @@ class _HomePageState extends State<HomePage> {
               child: 
               Row(
                 children: [
+                  const SizedBox(width: 20,),
                   CircleAvatar(
                     radius: 40,
                     backgroundImage: AssetImage('assets/images/cinamonroll2.png'),
@@ -35,12 +37,28 @@ class _HomePageState extends State<HomePage> {
                       Text('${widget.email}')
                     ],
                   ),
+                  const SizedBox(width: 100),
                   IconButton(onPressed: (){
                     Navigator.pushNamed(context, '/login');
                   }, icon: Icon(Icons.logout))
                   
                 ],
               ),
+            ),
+            const SizedBox(height: 25,),
+            Column(
+              children: [
+                Image(image: AssetImage('assets/images/images.jpg'))
+              ],
+            ),
+            Row(
+              children: [
+                Container(
+                  
+                  child: IconButton(
+                    onPressed: (){}, icon: Icon(Icons.abc_sharp)),
+                )
+              ],
             )
           ],
         ),),
