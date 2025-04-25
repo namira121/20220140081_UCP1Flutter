@@ -18,7 +18,11 @@ class _LoginPageState extends State<LoginPage> {
     return Scaffold(
       body: Form(
         key: _formkey,
-        child: Column(
+        child: Padding(
+          padding: EdgeInsets.all(16.0),
+          child: 
+          Column(
+            mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Image(image: AssetImage('assets/images/pompompurin.png')),
             Text('Selamat Datang Kembali'),
@@ -52,9 +56,12 @@ class _LoginPageState extends State<LoginPage> {
                     builder: (context) => 
                     HomePage(email: emailController.text)));
               }
-            }, child: Text('Masuk'))
+            }, child: Text('Masuk')),
+            
           ],
-        ),),
+        ),
+        )
+      ),
     );
   }
 }
