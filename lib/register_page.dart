@@ -118,12 +118,13 @@ class _RegisterPageState extends State<RegisterPage> {
                       MaterialPageRoute(
                         builder: (context) => 
                         HomePage(email: emailController.text)));
-                    }, child: Text('Daftar'))
+                    }, child: Text('Daftar')),
+                  TextButton(
+                    onPressed: (){
+                      Navigator.pushNamed(context, '/login');
+                    }, child: Text('Sudah memiliki akun? Silahkan login disini'))
                 ],
               ),
-
-              const SizedBox(height: 15,),
-              
             ],
           ),
         )
