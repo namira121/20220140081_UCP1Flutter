@@ -51,17 +51,24 @@ class _RegisterPageState extends State<RegisterPage> {
                       }
                       return null;
                     },
+                  ),
+                  Text('Email'),
+                  TextFormField(
+                    controller: emailController,
+                    decoration: const InputDecoration(
+                      labelText: 'Email',
+                      icon: Icon(Icons.email),),
+                    validator: (value) {
+                      if (value == null || value.isEmpty){
+                        return 'Email tidak boleh kosong';
+                      }
+                      return null;
+                    },
                   )
                 ],
               ),
               const SizedBox(height: 15,),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceAround,
-                children: [
-                  Text('Email'),
-                  Text('No.Hp')
-                ],
-              )
+              
             ],
           ),
         )
