@@ -91,7 +91,21 @@ class _RegisterPageState extends State<RegisterPage> {
                       }
                       return null;
                     },
-                  )
+                  ),
+                  Text('Konfirmasi Password'),
+                  TextFormField(
+                    controller: namaController,
+                    decoration: const InputDecoration(
+                      labelText: 'Konfirmasi Password',
+                      icon: Icon(Icons.lock),),
+                    obscureText: true,
+                    validator: (value) {
+                      if (value == null || value.isEmpty){
+                        return 'Konfirmasi password tidak boleh kosong';
+                      }
+                      return null;
+                    },
+                  ),
                 ],
               ),
               const SizedBox(height: 15,),
