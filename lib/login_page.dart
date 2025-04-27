@@ -107,10 +107,17 @@ class _LoginPageState extends State<LoginPage> {
                         HomePage(email: emailController.text)));
                   }
                 }, child: Text('Masuk')),
-                TextButton(onPressed: (){
-                  Navigator.push(context,
-                  MaterialPageRoute(builder: (context) => const RegisterPage()));
-                }, child: Text('Belum memiliki akun? Daftar disini'))
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Text('Belum memiliki akun? Silahkan'),
+                    TextButton(onPressed: (){
+                      Navigator.push(context,
+                      MaterialPageRoute(builder: (context) => const RegisterPage()));
+                    }, child: Text('Daftar disini'))
+                  ],
+                ),
+                
               ],
             )
             

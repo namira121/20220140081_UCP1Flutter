@@ -112,14 +112,14 @@ class _RegisterPageState extends State<RegisterPage> {
                       Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
-                          Text('Nomor Hp'),
+                          Text('No Hp'),
                           const SizedBox(height: 10),
                           TextFormField(
-                            controller: emailController,
+                            controller: nomorController,
                             decoration: InputDecoration(
-                            hintText: 'Email',
+                            hintText: 'No Hp',
                             constraints: BoxConstraints.tightFor(width: 180),
-                            prefixIcon: Icon(Icons.email),
+                            prefixIcon: Icon(Icons.phone),
                             border: OutlineInputBorder(
                                 borderRadius: BorderRadius.circular(15)
                             )),
@@ -216,7 +216,7 @@ class _RegisterPageState extends State<RegisterPage> {
                 children: [
                   ElevatedButton(
                     style: ElevatedButton.styleFrom(
-                      backgroundColor: Colors.blue.shade200,
+                      backgroundColor: Colors.blue.shade100,
                       shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(10)
                       ),
@@ -228,10 +228,17 @@ class _RegisterPageState extends State<RegisterPage> {
                         KonfirmasiPassword();
                       } 
                     }, child: Text('Daftar')),
-                  TextButton(
-                    onPressed: (){
-                      Navigator.pushNamed(context, '/login');
-                    }, child: Text('Sudah memiliki akun? Silahkan login disini'))
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Text('Sudah memiliki akun? Silahkan'),
+                      TextButton(
+                      onPressed: (){
+                        Navigator.pushNamed(context, '/login');
+                      }, child: Text('Login disini'))
+                    ],
+                  ),
+                  
                 ],
               ),
             ],
