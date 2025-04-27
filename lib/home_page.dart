@@ -53,32 +53,31 @@ class _HomePageState extends State<HomePage> {
                 Image(image: AssetImage('assets/images/images.jpg'))
               ],
             ),
-            Column(
+            const SizedBox(height: 40),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                  children: [
-                    Container(
-                      width: 150,
-                      height: 150,
-                      child: 
-                      ElevatedButton(
-                        style: ElevatedButton.styleFrom(
-                          backgroundColor: Colors.pink.shade100,
-                          shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
-                          iconSize: 50,
-                        ),
-                        onPressed: (){
-                          Navigator.push(context, 
-                          MaterialPageRoute(builder:(context) => DataPiket()));
-                        }, 
-                        child: Icon(Icons.list_alt_outlined))
-                    ),
+                ElevatedButton(
+                  style: ElevatedButton.styleFrom(
+                    backgroundColor: Colors.pink.shade100,
+                    shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
+                    iconSize: 75,
+                    minimumSize: Size(175, 175),
+                  ),
+                  onPressed: (){
+                    Navigator.push(context, 
+                    MaterialPageRoute(builder:(context) => DataPiket()));
+                  }, 
+                  child: Column(
+                    children: [
+                      Icon(Icons.list_alt_outlined),
+                      Text('Data Piket')
+                    ],
+                  ))
                     
-                  ],
-                ),
-              ],
-            )
+                    
+                ],
+              ),
           ],
         ),),
       
