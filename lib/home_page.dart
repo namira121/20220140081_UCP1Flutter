@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:ucp1_081/daftarcust.dart';
 import 'package:ucp1_081/data_piket.dart';
 
 class HomePage extends StatefulWidget {
@@ -61,7 +62,7 @@ class _HomePageState extends State<HomePage> {
                   style: ElevatedButton.styleFrom(
                     backgroundColor: Colors.pink.shade100,
                     shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
-                    iconSize: 75,
+                    iconSize: 70,
                     minimumSize: Size(175, 175),
                   ),
                   onPressed: (){
@@ -73,11 +74,32 @@ class _HomePageState extends State<HomePage> {
                       Icon(Icons.list_alt_outlined),
                       Text('Data Piket')
                     ],
-                  ))
-                    
-                    
+                  )
+                ),
+                ElevatedButton(
+                  style: ElevatedButton.styleFrom(
+                    backgroundColor: Colors.pink.shade100,
+                    shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
+                    iconSize: 70,
+                    minimumSize: Size(175, 175),
+                  ),
+                  onPressed: (){
+                    Navigator.push(context, 
+                    MaterialPageRoute(builder:(context) => DataCustomer()));
+                  }, 
+                  child: Column(
+                    children: [
+                      Icon(Icons.group_add_rounded),
+                      Text('Data Pelanggan')
+                    ],
+                  ))  
                 ],
               ),
+              Row(
+                children: [
+                  
+                ],
+              )
           ],
         ),),
       
