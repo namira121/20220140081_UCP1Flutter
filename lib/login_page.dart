@@ -10,6 +10,7 @@ class LoginPage extends StatefulWidget {
 }
 
 class _LoginPageState extends State<LoginPage> {
+  bool _obscuretext = true;
   TextEditingController emailController = TextEditingController();
   TextEditingController passwordController = TextEditingController();
 
@@ -58,10 +59,20 @@ class _LoginPageState extends State<LoginPage> {
                 Text('Password'),
                 TextFormField(
                   controller: passwordController,
-                  obscureText: true,
-                  decoration: const InputDecoration(
+                  obscureText: _obscuretext,
+                  decoration: InputDecoration(
                     labelText: 'Enter your password',
-                    icon: Icon(Icons.lock)),
+                    prefixIcon: Icon(Icons.lock),
+                    suffixIcon: GestureDetector(onTap: () {
+                      setState(() {
+                        _obscuretext=!_obscuretext;
+                      });
+                    },
+                      child: Icon(_obscuretext 
+                      ? Icons.visibility_off
+                      : Icons.visibility),
+                    ),
+                    border: OutlineInputBorder(borderRadius: BorderRadius.circular(30))),
                   validator: (value){
                     if (value == null || value.isEmpty) {
                       return 'Please enter your email';
