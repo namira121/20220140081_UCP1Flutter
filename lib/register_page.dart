@@ -19,14 +19,24 @@ class _RegisterPageState extends State<RegisterPage> {
   var _password = '';
   var _confirmPassword = '';
 
-  void KonfirmasiPassword() async{
-    if (_password != _confirmPassword){
+  void KonfirmasiPassword(){
+    setState(() {
+      if (_password != _confirmPassword){
       ScaffoldMessenger.of(context).showSnackBar(
         SnackBar(
-          content: Text('Password tidak sama!')
+          content: Text('Password tidak sama!', style: TextStyle(color: Colors.black),),
+          duration: Duration(seconds: 3),
+          backgroundColor: Colors.red.shade200,
           )
         );
-    }
+      } else {
+        Navigator.pushReplacement(
+        context, 
+        MaterialPageRoute(
+        builder: (context) => 
+        HomePage(email: emailController.text)));
+      }
+    });
   }
 
   @override
@@ -163,12 +173,12 @@ class _RegisterPageState extends State<RegisterPage> {
               Column(
                 children: [
                   ElevatedButton(
-                    onPressed: (){
-                      Navigator.pushReplacement(
-                      context, 
-                      MaterialPageRoute(
-                        builder: (context) => 
-                        HomePage(email: emailController.text)));
+                    onPressed: (
+                    ){
+                      if(_formkey.currentState!.validate()){
+                        KonfirmasiPassword();
+                        
+                      } 
                     }, child: Text('Daftar')),
                   TextButton(
                     onPressed: (){
