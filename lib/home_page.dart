@@ -21,7 +21,7 @@ class _HomePageState extends State<HomePage> {
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
             Container(
-              padding: EdgeInsets.only(top: 70),
+              padding: EdgeInsets.only(top: 70, right: 16, bottom: 16),
               color: Colors.blue.shade100,
               child: 
               Row(
@@ -33,6 +33,7 @@ class _HomePageState extends State<HomePage> {
                   ),
                   const SizedBox(width: 15),
                   Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Text('Selamat datang,'),
                       Text('${widget.email}')
@@ -40,7 +41,7 @@ class _HomePageState extends State<HomePage> {
                   ),
                   const SizedBox(width: 100),
                   IconButton(onPressed: (){
-                    Navigator.pushNamed(context, '/login');
+                    Navigator.pushReplacementNamed(context, '/login');
                   }, icon: Icon(Icons.logout))
                   
                 ],
@@ -52,20 +53,30 @@ class _HomePageState extends State<HomePage> {
                 Image(image: AssetImage('assets/images/images.jpg'))
               ],
             ),
-            Row(
+            Column(
               children: [
-                Container(
-                  decoration: BoxDecoration(
-                    color: Colors.blue.shade100),
-                  width: 200,
-                  height: 150,
-                  child: 
-                  IconButton(
-                    onPressed: (){
-                      Navigator.push(context, 
-                      MaterialPageRoute(builder: (context) => const DataPiket()));
-                    }, icon: Icon(Icons.list)),
-                )
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                  children: [
+                    Container(
+                      width: 150,
+                      height: 150,
+                      child: 
+                      ElevatedButton(
+                        style: ElevatedButton.styleFrom(
+                          backgroundColor: Colors.pink.shade100,
+                          shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
+                          iconSize: 50,
+                        ),
+                        onPressed: (){
+                          Navigator.push(context, 
+                          MaterialPageRoute(builder:(context) => DataPiket()));
+                        }, 
+                        child: Icon(Icons.list_alt_outlined))
+                    ),
+                    
+                  ],
+                ),
               ],
             )
           ],
