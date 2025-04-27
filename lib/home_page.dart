@@ -40,7 +40,7 @@ class _HomePageState extends State<HomePage> {
                       Text('${widget.email}')
                     ],
                   ),
-                  const SizedBox(width: 100),
+                  const SizedBox(width: 120),
                   IconButton(onPressed: (){
                     Navigator.pushReplacementNamed(context, '/login');
                   }, icon: Icon(Icons.logout))
@@ -95,9 +95,27 @@ class _HomePageState extends State<HomePage> {
                   ))  
                 ],
               ),
+              const SizedBox(height: 20),
               Row(
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
-                  
+                  ElevatedButton(
+                  style: ElevatedButton.styleFrom(
+                    backgroundColor: Colors.pink.shade100,
+                    shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
+                    iconSize: 75,
+                    minimumSize: Size(375, 175),
+                  ),
+                  onPressed: (){
+                    Navigator.push(context, 
+                    MaterialPageRoute(builder:(context) => DataPiket()));
+                  }, 
+                  child: Column(
+                    children: [
+                      Icon(Icons.receipt_long_outlined),
+                      Text('Barang Masuk/Keluar')
+                    ],
+                  ))
                 ],
               )
           ],
