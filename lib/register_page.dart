@@ -10,11 +10,25 @@ class RegisterPage extends StatefulWidget {
 
 class _RegisterPageState extends State<RegisterPage> {
   bool _obscuretext = true;
-  TextEditingController namaController = TextEditingController();
-  TextEditingController emailController = TextEditingController();
-  TextEditingController passwordController = TextEditingController();
-  TextEditingController nomorController = TextEditingController();
+  final TextEditingController namaController = TextEditingController();
+  final TextEditingController emailController = TextEditingController();
+  final TextEditingController passwordController = TextEditingController();
+  final TextEditingController confirmpasswordController = TextEditingController();
+  final TextEditingController nomorController = TextEditingController();
   
+  var _password = '';
+  var _confirmPassword = '';
+
+  void KonfirmasiPassword() async{
+    if (_password != _confirmPassword){
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(
+          content: Text('Password tidak sama!')
+          )
+        );
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     final _formkey = GlobalKey<FormState>();
@@ -91,9 +105,12 @@ class _RegisterPageState extends State<RegisterPage> {
                   ),
                   Text('Password'),
                   TextFormField(
-                    controller: namaController,
+                    controller: passwordController,
                     decoration: InputDecoration(
-                      labelText: 'Password',
+                      hintText: 'Password',
+                      border: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(15)
+                      ),
                       prefixIcon: Icon(Icons.lock),
                       suffixIcon: GestureDetector(onTap: () {
                         setState(() {
@@ -104,6 +121,9 @@ class _RegisterPageState extends State<RegisterPage> {
                       ? Icons.visibility_off
                       : Icons.visibility),)),
                     obscureText: _obscuretext,
+                    onChanged: (value) {
+                      _password = value;
+                    },
                     validator: (value) {
                       if (value == null || value.isEmpty){
                         return 'Password tidak boleh kosong';
@@ -113,9 +133,11 @@ class _RegisterPageState extends State<RegisterPage> {
                   ),
                   Text('Konfirmasi Password'),
                   TextFormField(
-                    controller: namaController,
+                    controller: confirmpasswordController,
                     decoration: InputDecoration(
-                      labelText: 'Konfirmasi Password',
+                      hintText: 'Konfirmasi Password',
+                      border: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(15)),
                       prefixIcon: Icon(Icons.lock),
                       suffixIcon: GestureDetector(onTap: () {
                         setState(() {
@@ -126,6 +148,9 @@ class _RegisterPageState extends State<RegisterPage> {
                       ? Icons.visibility_off
                       : Icons.visibility),)),
                     obscureText: _obscuretext,
+                    onChanged: (value) {
+                      _confirmPassword = value;
+                    },
                     validator: (value) {
                       if (value == null || value.isEmpty){
                         return 'Konfirmasi password tidak boleh kosong';
