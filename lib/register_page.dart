@@ -43,9 +43,12 @@ class _RegisterPageState extends State<RegisterPage> {
                   Text('Nama Lengkap'),
                   TextFormField(
                     controller: namaController,
-                    decoration: const InputDecoration(
-                      labelText: 'Nama Lengkap',
-                      icon: Icon(Icons.person),),
+                    decoration: InputDecoration(
+                      hintText: 'Nama Lengkap',
+                      prefixIcon: Icon(Icons.person),
+                      border: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(15)
+                      )),
                     validator: (value) {
                       if (value == null || value.isEmpty){
                         return 'Nama tidak boleh kosong';

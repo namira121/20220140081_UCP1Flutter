@@ -95,7 +95,7 @@ class _LoginPageState extends State<LoginPage> {
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(10),
                     ),
-                    fixedSize: Size(400, 45)
+                    fixedSize: Size(400, 50)
                   ),
                     onPressed: (){
                   if(_formkey.currentState!.validate()){
