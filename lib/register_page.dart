@@ -61,11 +61,12 @@ class _RegisterPageState extends State<RegisterPage> {
                 Text('Daftar Akun Baru', style: TextStyle(fontSize: 20),),
               ],
               ),
-              const SizedBox(height: 15),
+              const SizedBox(height: 40),
               Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text('Nama Lengkap'),
+                  const SizedBox(height: 10),
                   TextFormField(
                     controller: namaController,
                     decoration: InputDecoration(
@@ -81,6 +82,7 @@ class _RegisterPageState extends State<RegisterPage> {
                       return null;
                     },
                   ),
+                  const SizedBox(height: 15),
                   Row(
                     mainAxisAlignment:MainAxisAlignment.spaceBetween,
                     children: [
@@ -88,6 +90,7 @@ class _RegisterPageState extends State<RegisterPage> {
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           Text('Email'),
+                          const SizedBox(height: 10),
                           TextFormField(
                             controller: emailController,
                             decoration: InputDecoration(
@@ -110,6 +113,7 @@ class _RegisterPageState extends State<RegisterPage> {
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           Text('Nomor Hp'),
+                          const SizedBox(height: 10),
                           TextFormField(
                             controller: emailController,
                             decoration: InputDecoration(
@@ -130,6 +134,7 @@ class _RegisterPageState extends State<RegisterPage> {
                       ),
                     ]
                   ),
+                  const SizedBox(height: 15),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
@@ -137,6 +142,7 @@ class _RegisterPageState extends State<RegisterPage> {
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           Text('Password'),
+                          const SizedBox(height: 10),
                           TextFormField(
                             controller: passwordController,
                             decoration: InputDecoration(
@@ -171,6 +177,7 @@ class _RegisterPageState extends State<RegisterPage> {
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           Text('Konfirmasi Password'),
+                          const SizedBox(height: 10),
                           TextFormField(
                             controller: confirmpasswordController,
                             decoration: InputDecoration(
@@ -208,6 +215,13 @@ class _RegisterPageState extends State<RegisterPage> {
               Column(
                 children: [
                   ElevatedButton(
+                    style: ElevatedButton.styleFrom(
+                      backgroundColor: Colors.blue.shade200,
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(10)
+                      ),
+                      fixedSize: Size(400, 50)
+                    ),
                     onPressed: (
                     ){
                       if(_formkey.currentState!.validate()){
