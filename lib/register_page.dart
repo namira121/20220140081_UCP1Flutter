@@ -81,95 +81,130 @@ class _RegisterPageState extends State<RegisterPage> {
                       return null;
                     },
                   ),
-                  Text('Email'),
-                  TextFormField(
-                    controller: emailController,
-                    decoration: InputDecoration(
-                      hintText: 'Email',
-                      prefixIcon: Icon(Icons.email),
-                      border: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(15)
-                      )),
-                    validator: (value) {
-                      if (value == null || value.isEmpty){
-                        return 'Email tidak boleh kosong';
-                      }
-                      return null;
-                    },
-                  ),
-                  Text('Nomor Hp'),
-                  TextFormField(
-                    controller: nomorController,
-                    decoration: InputDecoration(
-                      labelText: 'Nomor Hp',
-                      prefixIcon: Icon(Icons.phone),
-                      border: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(15)
-                      )),
-                    validator: (value) {
-                      if (value == null || value.isEmpty){
-                        return 'No Hp tidak boleh kosong';
-                      }
-                      return null;
-                    },
-                  ),
-                  Text('Password'),
-                  TextFormField(
-                    controller: passwordController,
-                    decoration: InputDecoration(
-                      hintText: 'Password',
-                      border: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(15)
+                  Row(
+                    mainAxisAlignment:MainAxisAlignment.spaceBetween,
+                    children: [
+                      Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text('Email'),
+                          TextFormField(
+                            controller: emailController,
+                            decoration: InputDecoration(
+                              hintText: 'Email',
+                              constraints: BoxConstraints.tightFor(width: 180),
+                              prefixIcon: Icon(Icons.email),
+                              border: OutlineInputBorder(
+                                borderRadius: BorderRadius.circular(15)
+                            )),
+                            validator: (value) {
+                              if (value == null || value.isEmpty){
+                                return 'Email tidak boleh kosong';
+                              }
+                                return null;
+                              },
+                          )
+                        ],
                       ),
-                      prefixIcon: Icon(Icons.lock),
-                      suffixIcon: GestureDetector(onTap: () {
-                        setState(() {
-                          _obscuretext=!_obscuretext;
-                        });
-                      },
-                      child: Icon(_obscuretext 
-                      ? Icons.visibility_off
-                      : Icons.visibility),)),
-                    obscureText: _obscuretext,
-                    onChanged: (value) {
-                      _password = value;
-                    },
-                    validator: (value) {
-                      if (value == null || value.isEmpty){
-                        return 'Password tidak boleh kosong';
-                      }
-                      return null;
-                    },
+                      Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text('Nomor Hp'),
+                          TextFormField(
+                            controller: emailController,
+                            decoration: InputDecoration(
+                            hintText: 'Email',
+                            constraints: BoxConstraints.tightFor(width: 180),
+                            prefixIcon: Icon(Icons.email),
+                            border: OutlineInputBorder(
+                                borderRadius: BorderRadius.circular(15)
+                            )),
+                            validator: (value) {
+                            if (value == null || value.isEmpty){
+                                return 'Email tidak boleh kosong';
+                            }
+                              return null;
+                            },
+                        ),
+                        ],
+                      ),
+                    ]
                   ),
-                  Text('Konfirmasi Password'),
-                  TextFormField(
-                    controller: confirmpasswordController,
-                    decoration: InputDecoration(
-                      hintText: 'Konfirmasi Password',
-                      border: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(15)),
-                      prefixIcon: Icon(Icons.lock),
-                      suffixIcon: GestureDetector(onTap: () {
-                        setState(() {
-                          _obscuretext=!_obscuretext;
-                        });
-                      },
-                      child: Icon(_obscuretext 
-                      ? Icons.visibility_off
-                      : Icons.visibility),)),
-                    obscureText: _obscuretext,
-                    onChanged: (value) {
-                      _confirmPassword = value;
-                    },
-                    validator: (value) {
-                      if (value == null || value.isEmpty){
-                        return 'Konfirmasi password tidak boleh kosong';
-                      }
-                      return null;
-                    },
-                  ),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text('Password'),
+                          TextFormField(
+                            controller: passwordController,
+                            decoration: InputDecoration(
+                              hintText: 'Password',
+                              constraints: BoxConstraints.tightFor(width: 180),
+                              border: OutlineInputBorder(
+                                borderRadius: BorderRadius.circular(15)
+                              ),
+                              prefixIcon: Icon(Icons.lock),
+                              suffixIcon: GestureDetector(onTap: () {
+                                setState(() {
+                                  _obscuretext=!_obscuretext;
+                                });
+                              },
+                              child: Icon(_obscuretext 
+                              ? Icons.visibility_off
+                              : Icons.visibility),)),
+                            obscureText: _obscuretext,
+                            onChanged: (value) {
+                              _password = value;
+                            },
+                            validator: (value) {
+                              if (value == null || value.isEmpty){
+                                return 'Password tidak boleh kosong';
+                              }
+                              return null;
+                            },
+                          ),
+                        ],
+                      ),
+                      Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text('Konfirmasi Password'),
+                          TextFormField(
+                            controller: confirmpasswordController,
+                            decoration: InputDecoration(
+                              hintText: 'Konfirmasi Password',
+                              constraints: BoxConstraints.tightFor(width: 180),
+                              border: OutlineInputBorder(
+                                borderRadius: BorderRadius.circular(15)),
+                              prefixIcon: Icon(Icons.lock),
+                              suffixIcon: GestureDetector(onTap: () {
+                                setState(() {
+                                  _obscuretext=!_obscuretext;
+                                });
+                              },
+                              child: Icon(_obscuretext 
+                              ? Icons.visibility_off
+                              : Icons.visibility),)),
+                            obscureText: _obscuretext,
+                            onChanged: (value) {
+                              _confirmPassword = value;
+                            },
+                            validator: (value) {
+                              if (value == null || value.isEmpty){
+                                return 'Konfirmasi password tidak boleh kosong';
+                              }
+                              return null;
+                            },
+                          ),
+                        ],
+                      )
+                    ],
+                  ),                  
                 ],
               ),
+              const SizedBox(height: 80,),
               Column(
                 children: [
                   ElevatedButton(
@@ -177,7 +212,6 @@ class _RegisterPageState extends State<RegisterPage> {
                     ){
                       if(_formkey.currentState!.validate()){
                         KonfirmasiPassword();
-                        
                       } 
                     }, child: Text('Daftar')),
                   TextButton(
