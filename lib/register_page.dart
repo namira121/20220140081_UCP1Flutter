@@ -114,9 +114,17 @@ class _RegisterPageState extends State<RegisterPage> {
                   Text('Konfirmasi Password'),
                   TextFormField(
                     controller: namaController,
-                    decoration: const InputDecoration(
+                    decoration: InputDecoration(
                       labelText: 'Konfirmasi Password',
-                      prefixIcon: Icon(Icons.lock),),
+                      prefixIcon: Icon(Icons.lock),
+                      suffixIcon: GestureDetector(onTap: () {
+                        setState(() {
+                          _obscuretext=!_obscuretext;
+                        });
+                      },
+                      child: Icon(_obscuretext 
+                      ? Icons.visibility_off
+                      : Icons.visibility),)),
                     obscureText: _obscuretext,
                     validator: (value) {
                       if (value == null || value.isEmpty){
