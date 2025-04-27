@@ -42,12 +42,13 @@ class _LoginPageState extends State<LoginPage> {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text('Email'),
+                const SizedBox(height: 15,),
                 TextFormField(
                   controller: emailController,
                   decoration: InputDecoration(
-                    labelText: 'Enter your email',
+                    hintText: 'Enter your email',
                     prefixIcon: Icon(Icons.email),
-                    border: OutlineInputBorder(borderRadius: BorderRadius.circular(30))),
+                    border: OutlineInputBorder(borderRadius: BorderRadius.circular(15))),
                   validator: (value){
                     if (value == null || value.isEmpty) {
                       return 'Please enter your email';
@@ -55,8 +56,9 @@ class _LoginPageState extends State<LoginPage> {
                     return null;
                   },              
                 ),
-                const SizedBox(height: 10,),
+                const SizedBox(height: 30,),
                 Text('Password'),
+                const SizedBox(height: 15,),
                 TextFormField(
                   controller: passwordController,
                   obscureText: _obscuretext,
@@ -72,7 +74,7 @@ class _LoginPageState extends State<LoginPage> {
                       ? Icons.visibility_off
                       : Icons.visibility),
                     ),
-                    border: OutlineInputBorder(borderRadius: BorderRadius.circular(30))),
+                    border: OutlineInputBorder(borderRadius: BorderRadius.circular(15))),
                   validator: (value){
                     if (value == null || value.isEmpty) {
                       return 'Please enter your email';
@@ -83,11 +85,19 @@ class _LoginPageState extends State<LoginPage> {
                 
               ],
             ),
-            const SizedBox(height: 20,),
+            const SizedBox(height: 80,),
             Column(
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
-                ElevatedButton(onPressed: (){
+                ElevatedButton(
+                  style: ElevatedButton.styleFrom(
+                    backgroundColor: Colors.blue.shade100,
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(10),
+                    ),
+                    fixedSize: Size(400, 45)
+                  ),
+                    onPressed: (){
                   if(_formkey.currentState!.validate()){
                     Navigator.pushReplacement(
                       context, 
