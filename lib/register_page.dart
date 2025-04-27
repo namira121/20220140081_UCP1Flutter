@@ -59,9 +59,12 @@ class _RegisterPageState extends State<RegisterPage> {
                   Text('Email'),
                   TextFormField(
                     controller: emailController,
-                    decoration: const InputDecoration(
-                      labelText: 'Email',
-                      icon: Icon(Icons.email),),
+                    decoration: InputDecoration(
+                      hintText: 'Email',
+                      prefixIcon: Icon(Icons.email),
+                      border: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(15)
+                      )),
                     validator: (value) {
                       if (value == null || value.isEmpty){
                         return 'Email tidak boleh kosong';
