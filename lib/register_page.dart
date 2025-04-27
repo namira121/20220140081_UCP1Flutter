@@ -75,9 +75,12 @@ class _RegisterPageState extends State<RegisterPage> {
                   Text('Nomor Hp'),
                   TextFormField(
                     controller: nomorController,
-                    decoration: const InputDecoration(
+                    decoration: InputDecoration(
                       labelText: 'Nomor Hp',
-                      icon: Icon(Icons.phone),),
+                      prefixIcon: Icon(Icons.phone),
+                      border: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(15)
+                      )),
                     validator: (value) {
                       if (value == null || value.isEmpty){
                         return 'No Hp tidak boleh kosong';
