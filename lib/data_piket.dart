@@ -102,6 +102,12 @@ class _DataPiketState extends State<DataPiket> {
                         , icon: Icon(Icons.calendar_month_sharp))
                     ),
                     readOnly: true,
+                    validator: (value) {
+                      if(value == null|| value.isEmpty){
+                        return 'Tanggal tidak boleh kosong';
+                      }
+                      return null;
+                    },
                   ),
                   const SizedBox(height: 18),
                   Text('Tugas Piket'),
@@ -117,6 +123,12 @@ class _DataPiketState extends State<DataPiket> {
                           ),
                           constraints: BoxConstraints.tightFor(width: 180)
                         ),
+                        validator: (value) {
+                          if(value == null || value.isEmpty){
+                            return 'Tugas tidak boleh kosong';
+                          }
+                          return null;
+                        },
                       ),
                       ElevatedButton(
                         style: ElevatedButton.styleFrom(
