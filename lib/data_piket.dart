@@ -12,19 +12,19 @@ class DataPiket extends StatefulWidget {
 }
 
 class _DataPiketState extends State<DataPiket> {
-  // late TextEditingController emailController;
-  final TextEditingController emailController = TextEditingController();
+  late TextEditingController emailController;
+  // final TextEditingController emailController = TextEditingController();
   final TextEditingController tanggalController = TextEditingController();
   final TextEditingController tugasController = TextEditingController();
   List<Map<String,String>> listTugas = [];
 
 
-  // @override
-  // void initState() {
-  //   // TODO: implement initState
-  //   super.initState();
-  //   emailController = TextEditingController(text: widget.email);
-  // }
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+    emailController = TextEditingController(text: widget.email);
+  }
   void addData(){
     setState(() {
       listTugas.add({

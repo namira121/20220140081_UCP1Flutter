@@ -70,7 +70,7 @@ class _HomePageState extends State<HomePage> {
                   onPressed: (){
                     Navigator.push(context, 
                     MaterialPageRoute(builder:(context) => 
-                    DataPiket(email: emailController.text)));
+                    DataPiket(email: widget.email)));
                   }, 
                   child: Column(
                     children: [
