@@ -87,6 +87,23 @@ class _DataPiketState extends State<DataPiket> {
                     , icon: Icon(Icons.calendar_month_sharp))
                 ),
                 readOnly: true,
+              ),
+              const SizedBox(height: 18),
+              Text('Tugas Piket'),
+              const SizedBox(height: 15),
+              Row(
+                children: [
+                  TextFormField(
+                    controller: tugasController,
+                    decoration: InputDecoration(
+                      hintText: 'Tugas Piket',
+                      border: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(15)
+                      ),
+                      constraints: BoxConstraints.tightFor(width: 180)
+                    ),
+                  )
+                ],
               )
             ],
           ),
