@@ -17,6 +17,7 @@ class _DataCustomerState extends State<DataCustomer> {
   
   @override
   Widget build(BuildContext context) {
+    final _formkey = GlobalKey<FormState>();
     return Scaffold(
       appBar: AppBar(
         title: Text('Data Pelanggan'),
@@ -26,11 +27,25 @@ class _DataCustomerState extends State<DataCustomer> {
       body: Padding(
         padding: EdgeInsets.all(16.0),
         child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Text('Nama Cust'),
+            const SizedBox(height: 10),
             TextFormField(
-
+              controller: namaCustController,
+              decoration: InputDecoration(
+                hintText: 'Nama Cust',
+                border: OutlineInputBorder(
+                borderRadius: BorderRadius.circular(15)
+              )),
+              validator: (value) {
+                if (value == null || value.isEmpty){
+                  return 'Nama tidak boleh kosong';
+                }
+                return null;
+              },
             ),
+            const SizedBox(height: 15),
           ],
         ),),
     );
