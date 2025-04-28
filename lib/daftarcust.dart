@@ -46,6 +46,54 @@ class _DataCustomerState extends State<DataCustomer> {
               },
             ),
             const SizedBox(height: 15),
+            Row(
+                    mainAxisAlignment:MainAxisAlignment.spaceBetween,
+                    children: [
+                      Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text('Email'),
+                          const SizedBox(height: 10),
+                          TextFormField(
+                            controller: emailCustController,
+                            decoration: InputDecoration(
+                              hintText: 'Email',
+                              constraints: BoxConstraints.tightFor(width: 180),
+                              border: OutlineInputBorder(
+                                borderRadius: BorderRadius.circular(15)
+                            )),
+                            validator: (value) {
+                              if (value == null || value.isEmpty){
+                                return 'Email tidak boleh kosong';
+                              }
+                                return null;
+                              },
+                          )
+                        ],
+                      ),
+                      Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text('No Hp'),
+                          const SizedBox(height: 10),
+                          TextFormField(
+                            controller: noHpCustController,
+                            decoration: InputDecoration(
+                            hintText: 'No Hp',
+                            constraints: BoxConstraints.tightFor(width: 180),                            border: OutlineInputBorder(
+                                borderRadius: BorderRadius.circular(15)
+                            )),
+                            validator: (value) {
+                            if (value == null || value.isEmpty){
+                                return 'No Hp tidak boleh kosong';
+                            }
+                              return null;
+                            },
+                        ),
+                        ],
+                      ),
+                    ]
+                  ),
           ],
         ),),
     );

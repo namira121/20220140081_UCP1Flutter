@@ -125,7 +125,7 @@ class _RegisterPageState extends State<RegisterPage> {
                             )),
                             validator: (value) {
                             if (value == null || value.isEmpty){
-                                return 'Email tidak boleh kosong';
+                                return 'No Hp tidak boleh kosong';
                             }
                               return null;
                             },
