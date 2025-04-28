@@ -33,7 +33,7 @@ class _DataPiketState extends State<DataPiket> {
         lastDate: DateTime(2200));
       if (picked != null && picked != selectedDate){
         setState(() {
-          selectedDate = picked;
+          tanggalController.text = "${picked.toLocal()}".split(' ')[0];
         });
       }
    }
@@ -78,11 +78,15 @@ class _DataPiketState extends State<DataPiket> {
                 controller: tanggalController,
                 decoration: InputDecoration(
                   hintText: 'Pilih Tanggal',
+                  border: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(15)
+                  ),
                   prefixIcon: IconButton(
                     onPressed: () =>
                       _selectedDate(context)
                     , icon: Icon(Icons.calendar_month_sharp))
                 ),
+                readOnly: true,
               )
             ],
           ),
