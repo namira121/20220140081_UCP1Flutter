@@ -162,8 +162,8 @@ class _DataPiketState extends State<DataPiket> {
                               MaterialPageRoute(
                                 builder: (context)=> DetailPiket(
                                   nama : emailController.text,
-                                  tugas : tugasController.text,
-                                  tanggal : tanggalController.text
+                                  tugas : listTugas[index]["task"]??'',
+                                  tanggal : listTugas[index]["date"]??'',
                                 )));
                           }, 
                           icon: Icon(Icons.arrow_forward_ios))

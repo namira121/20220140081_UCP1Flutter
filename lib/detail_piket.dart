@@ -33,7 +33,7 @@ class DetailPiket extends StatelessWidget {
                     color: Colors.indigo.shade100,
                     borderRadius: BorderRadius.circular(15)
                   ),
-                  child: Text('$tanggal'),
+                  child: Text(tanggal),
                 ),
                 Container(
                   width: 170,
@@ -43,13 +43,22 @@ class DetailPiket extends StatelessWidget {
                     color: Colors.indigo.shade100,
                     borderRadius: BorderRadius.circular(15)
                   ),
-                  child: Text('$nama'),
+                  child: Text(nama),
                 )
               ],
             ),
             Column(
               children: [
-                
+                Container(
+                  width: 400,
+                  height: 50,
+                  padding: EdgeInsets.all(16.0),
+                  decoration: BoxDecoration(
+                    color: Colors.indigo.shade100,
+                    borderRadius: BorderRadius.circular(15)
+                  ),
+                  child: Text(tugas),
+                )
               ],
             )
           ],
