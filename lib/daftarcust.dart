@@ -111,6 +111,55 @@ class _DataCustomerState extends State<DataCustomer> {
                 return null;
               },
             ),
+            const SizedBox(height: 15,),
+            Row(
+                    mainAxisAlignment:MainAxisAlignment.spaceBetween,
+                    children: [
+                      Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text('Provinsi'),
+                          const SizedBox(height: 10),
+                          TextFormField(
+                            controller: provinsiCustController,
+                            decoration: InputDecoration(
+                              hintText: 'Provinsi',
+                              constraints: BoxConstraints.tightFor(width: 180),
+                              border: OutlineInputBorder(
+                                borderRadius: BorderRadius.circular(15)
+                            )),
+                            validator: (value) {
+                              if (value == null || value.isEmpty){
+                                return 'Provinsi tidak boleh kosong';
+                              }
+                                return null;
+                              },
+                          )
+                        ],
+                      ),
+                      Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text('Kode Pos'),
+                          const SizedBox(height: 10),
+                          TextFormField(
+                            controller: kodeposCustController,
+                            decoration: InputDecoration(
+                            hintText: 'Kode Pos',
+                            constraints: BoxConstraints.tightFor(width: 180),                            border: OutlineInputBorder(
+                                borderRadius: BorderRadius.circular(15)
+                            )),
+                            validator: (value) {
+                            if (value == null || value.isEmpty){
+                                return 'Kode Pos tidak boleh kosong';
+                            }
+                              return null;
+                            },
+                        ),
+                        ],
+                      ),
+                    ]
+                  ),
           ],
         ),),
     );
