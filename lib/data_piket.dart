@@ -15,6 +15,8 @@ class _DataPiketState extends State<DataPiket> {
   final TextEditingController emailController = TextEditingController();
   final TextEditingController tanggalController = TextEditingController();
   final TextEditingController tugasController = TextEditingController();
+  List<Map<String,String>> listTugas = [];
+
 
   // @override
   // void initState() {
@@ -22,6 +24,16 @@ class _DataPiketState extends State<DataPiket> {
   //   super.initState();
   //   emailController = TextEditingController(text: widget.email);
   // }
+  void addData(){
+    setState(() {
+      listTugas.add({
+        "task" : tugasController.text,
+        "date" : tanggalController.text,
+      });
+      tugasController.clear();
+      tanggalController.clear();
+    });
+  }
 
   DateTime selectedDate = DateTime.now();
 
@@ -102,7 +114,19 @@ class _DataPiketState extends State<DataPiket> {
                       ),
                       constraints: BoxConstraints.tightFor(width: 180)
                     ),
-                  )
+                  ),
+                  ElevatedButton(
+                    style: ElevatedButton.styleFrom(
+                      backgroundColor: Colors.blue.shade100,
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(10)
+                      ),
+                      fixedSize: Size(100, 50)
+                    ),
+                    onPressed: (){
+
+                    }, 
+                    child: Text('Tambah'))
                 ],
               )
             ],
