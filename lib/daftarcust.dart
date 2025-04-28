@@ -94,6 +94,23 @@ class _DataCustomerState extends State<DataCustomer> {
                       ),
                     ]
                   ),
+            const SizedBox(height: 15),
+            Text('Alamat'),
+            const SizedBox(height: 10),
+            TextFormField(
+              controller: alamatCustController,
+              decoration: InputDecoration(
+                hintText: 'Alamat Cust',
+                border: OutlineInputBorder(
+                borderRadius: BorderRadius.circular(15)
+              )),
+              validator: (value) {
+                if (value == null || value.isEmpty){
+                  return 'Alamat tidak boleh kosong';
+                }
+                return null;
+              },
+            ),
           ],
         ),),
     );
