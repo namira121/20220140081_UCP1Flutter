@@ -12,6 +12,12 @@ class DetailPiket extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Placeholder();
+    return Scaffold(
+      appBar: AppBar(
+        title: Text('Detail ${tugas}'),
+        centerTitle: true,
+        backgroundColor: Colors.blue.shade100,
+      ),
+    );
   }
 }
