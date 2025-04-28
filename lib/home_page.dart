@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:ucp1_081/daftarcust.dart';
 import 'package:ucp1_081/data_piket.dart';
+import 'package:ucp1_081/order_page.dart';
 
 class HomePage extends StatefulWidget {
   final String email;
@@ -13,6 +14,7 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
+  final TextEditingController emailController = TextEditingController();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -23,7 +25,7 @@ class _HomePageState extends State<HomePage> {
           children: [
             Container(
               padding: EdgeInsets.only(top: 70, right: 16, bottom: 16),
-              color: Colors.blue.shade100,
+              color: Colors.indigo.shade300,
               child: 
               Row(
                 children: [
@@ -36,8 +38,8 @@ class _HomePageState extends State<HomePage> {
                   Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      Text('Selamat datang,'),
-                      Text('${widget.email}')
+                      Text('Selamat datang,', style: TextStyle(color: Colors.white, fontSize: 15),),
+                      Text('${widget.email}', style: TextStyle(color: Colors.white, fontSize: 15),)
                     ],
                   ),
                   const SizedBox(width: 120),
@@ -67,7 +69,8 @@ class _HomePageState extends State<HomePage> {
                   ),
                   onPressed: (){
                     Navigator.push(context, 
-                    MaterialPageRoute(builder:(context) => DataPiket()));
+                    MaterialPageRoute(builder:(context) => 
+                    DataPiket(email: emailController.text)));
                   }, 
                   child: Column(
                     children: [
@@ -108,7 +111,7 @@ class _HomePageState extends State<HomePage> {
                   ),
                   onPressed: (){
                     Navigator.push(context, 
-                    MaterialPageRoute(builder:(context) => DataPiket()));
+                    MaterialPageRoute(builder:(context) => OrderPage()));
                   }, 
                   child: Column(
                     children: [
