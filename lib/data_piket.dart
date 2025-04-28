@@ -22,7 +22,21 @@ class _DataPiketState extends State<DataPiket> {
   //   super.initState();
   //   emailController = TextEditingController(text: widget.email);
   // }
-  
+
+  DateTime selectedDate = DateTime.now();
+
+   Future<void> _selectedDate(BuildContext context) async{
+      final DateTime? picked = await showDatePicker(
+        context: context, 
+        initialDate: selectedDate,
+        firstDate: DateTime(2016,8), 
+        lastDate: DateTime(2200));
+      if (picked != null && picked != selectedDate){
+        setState(() {
+          selectedDate = picked;
+        });
+      }
+   }
 
   @override
   Widget build(BuildContext context) {
@@ -60,6 +74,16 @@ class _DataPiketState extends State<DataPiket> {
               const SizedBox(height: 18),
               Text('Pilih Tanggal'),
               const SizedBox(height: 15),
+              TextFormField(
+                controller: tanggalController,
+                decoration: InputDecoration(
+                  hintText: 'Pilih Tanggal',
+                  prefixIcon: IconButton(
+                    onPressed: () =>
+                      _selectedDate(context)
+                    , icon: Icon(Icons.calendar_month_sharp))
+                ),
+              )
             ],
           ),
           )
