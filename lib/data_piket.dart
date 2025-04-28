@@ -1,13 +1,29 @@
 import 'package:flutter/material.dart';
 
 class DataPiket extends StatefulWidget {
-  const DataPiket({super.key});
+  final String email;
+
+  const DataPiket({super.key,
+  required this.email});
 
   @override
   State<DataPiket> createState() => _DataPiketState();
 }
 
 class _DataPiketState extends State<DataPiket> {
+  // late TextEditingController emailController;
+  final TextEditingController emailController = TextEditingController();
+  final TextEditingController tanggalController = TextEditingController();
+  final TextEditingController tugasController = TextEditingController();
+
+  // @override
+  // void initState() {
+  //   // TODO: implement initState
+  //   super.initState();
+  //   emailController = TextEditingController(text: widget.email);
+  // }
+  
+
   @override
   Widget build(BuildContext context) {
     final _formkey = GlobalKey<FormState>();
@@ -20,7 +36,32 @@ class _DataPiketState extends State<DataPiket> {
       body: Form(
         key: _formkey,
         child: Padding(
-          padding: EdgeInsets.all(16.0)
+          padding: EdgeInsets.all(16.0),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Text('Nama Anggota'),
+              const SizedBox(height: 15),
+              TextFormField(
+                controller: emailController,
+                decoration: InputDecoration(
+                  hintText: 'Nama Anggota',
+                  border: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(15)
+                  )
+                ),
+                validator: (value) {
+                  if (value == null || value.isEmpty){
+                    return 'Nama tidak boleh kosong';
+                  }
+                  return null;
+                },
+              ),
+              const SizedBox(height: 18),
+              Text('Pilih Tanggal'),
+              const SizedBox(height: 15),
+            ],
+          ),
           )
         ),
       
