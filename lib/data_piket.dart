@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:ucp1_081/detail_piket.dart';
 
 class DataPiket extends StatefulWidget {
   final String email;
@@ -59,80 +60,120 @@ class _DataPiketState extends State<DataPiket> {
         centerTitle: true,
         backgroundColor: Colors.blue.shade100,
       ),
-      body: Form(
-        key: _formkey,
-        child: Padding(
-          padding: EdgeInsets.all(16.0),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Text('Nama Anggota'),
-              const SizedBox(height: 15),
-              TextFormField(
-                controller: emailController,
-                decoration: InputDecoration(
-                  hintText: 'Nama Anggota',
-                  border: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(15)
-                  )
-                ),
-                validator: (value) {
-                  if (value == null || value.isEmpty){
-                    return 'Nama tidak boleh kosong';
-                  }
-                  return null;
-                },
-              ),
-              const SizedBox(height: 18),
-              Text('Pilih Tanggal'),
-              const SizedBox(height: 15),
-              TextFormField(
-                controller: tanggalController,
-                decoration: InputDecoration(
-                  hintText: 'Pilih Tanggal',
-                  border: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(15)
-                  ),
-                  prefixIcon: IconButton(
-                    onPressed: () =>
-                      _selectedDate(context)
-                    , icon: Icon(Icons.calendar_month_sharp))
-                ),
-                readOnly: true,
-              ),
-              const SizedBox(height: 18),
-              Text('Tugas Piket'),
-              const SizedBox(height: 15),
-              Row(
+      body: Column(
+        children: [
+          Form(
+            key: _formkey,
+            child: Padding(
+              padding: EdgeInsets.all(16.0),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
+                  Text('Nama Anggota'),
+                  const SizedBox(height: 15),
                   TextFormField(
-                    controller: tugasController,
+                    controller: emailController,
                     decoration: InputDecoration(
-                      hintText: 'Tugas Piket',
+                      hintText: 'Nama Anggota',
+                      border: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(15)
+                      )
+                    ),
+                    validator: (value) {
+                      if (value == null || value.isEmpty){
+                        return 'Nama tidak boleh kosong';
+                      }
+                      return null;
+                    },
+                  ),
+                  const SizedBox(height: 18),
+                  Text('Pilih Tanggal'),
+                  const SizedBox(height: 15),
+                  TextFormField(
+                    controller: tanggalController,
+                    decoration: InputDecoration(
+                      hintText: 'Pilih Tanggal',
                       border: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(15)
                       ),
-                      constraints: BoxConstraints.tightFor(width: 180)
+                      prefixIcon: IconButton(
+                        onPressed: () =>
+                          _selectedDate(context)
+                        , icon: Icon(Icons.calendar_month_sharp))
                     ),
+                    readOnly: true,
                   ),
-                  ElevatedButton(
-                    style: ElevatedButton.styleFrom(
-                      backgroundColor: Colors.blue.shade100,
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(10)
+                  const SizedBox(height: 18),
+                  Text('Tugas Piket'),
+                  const SizedBox(height: 15),
+                  Row(
+                    children: [
+                      TextFormField(
+                        controller: tugasController,
+                        decoration: InputDecoration(
+                          hintText: 'Tugas Piket',
+                          border: OutlineInputBorder(
+                            borderRadius: BorderRadius.circular(15)
+                          ),
+                          constraints: BoxConstraints.tightFor(width: 180)
+                        ),
                       ),
-                      fixedSize: Size(100, 50)
-                    ),
-                    onPressed: (){
-
-                    }, 
-                    child: Text('Tambah'))
+                      ElevatedButton(
+                        style: ElevatedButton.styleFrom(
+                          backgroundColor: Colors.blue.shade100,
+                          shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(10)
+                          ),
+                          fixedSize: Size(100, 50)
+                        ),
+                        onPressed: (){
+                          if(_formkey.currentState!.validate()){
+                            addData();
+                          }
+                        }, 
+                        child: Text('Tambah'))
+                    ],
+                  )
                 ],
+              ),
               )
-            ],
-          ),
-          )
-        ),
+            ),
+            Expanded(
+              child: ListView.builder(
+                padding: EdgeInsets.all(16.0),
+                itemCount: listTugas.length,
+                itemBuilder: (context,index){
+                  return Container(
+                    width: 400,
+                    height: 63,
+                    decoration: BoxDecoration(
+                      color: Colors.pink.shade100,
+                      borderRadius: BorderRadius.circular(10)
+                    ),
+                    padding: const EdgeInsets.only(right: 16, left: 25),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Text(listTugas[index]["task"]!),
+                        IconButton(
+                          onPressed: (){
+                            Navigator.push(
+                              context, 
+                              MaterialPageRoute(
+                                builder: (context)=> DetailPiket(
+                                    
+                                )));
+                          }, 
+                          icon: Icon(Icons.arrow_forward_ios))
+                      ],
+                    ),
+                  );
+                }))
+        ],
+      ),
+
+    
+
       
     );
   }
