@@ -8,6 +8,13 @@ class DataCustomer extends StatefulWidget {
 }
 
 class _DataCustomerState extends State<DataCustomer> {
+  final TextEditingController namaCustController = TextEditingController();
+  final TextEditingController emailCustController = TextEditingController();
+  final TextEditingController noHpCustController = TextEditingController();
+  final TextEditingController alamatCustController = TextEditingController();
+  final TextEditingController provinsiCustController = TextEditingController();
+  final TextEditingController kodeposCustController = TextEditingController();
+  
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -20,7 +27,10 @@ class _DataCustomerState extends State<DataCustomer> {
         padding: EdgeInsets.all(16.0),
         child: Column(
           children: [
-            
+            Text('Nama Cust'),
+            TextFormField(
+
+            ),
           ],
         ),),
     );
