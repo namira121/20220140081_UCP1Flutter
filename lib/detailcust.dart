@@ -8,6 +8,7 @@ class Detailcust extends StatefulWidget {
   final String alamatCust;
   final String provinsiCust;
   final String kodeposCust;
+  final String email;
   
   const Detailcust({super.key,
   required this.namaCust,
@@ -16,6 +17,7 @@ class Detailcust extends StatefulWidget {
   required this.alamatCust,
   required this.provinsiCust,
   required this.kodeposCust,
+  required this.email,
   });
 
   @override
@@ -135,7 +137,7 @@ class _DetailcustState extends State<Detailcust> {
                       onPressed: (){
                         Navigator.push(context, 
                         MaterialPageRoute(builder: (context)=>HomePage(
-                          email: emailCustController.text)));
+                          email: widget.email)));
                       }, 
                       child: Text('Selesai'))
                   ],

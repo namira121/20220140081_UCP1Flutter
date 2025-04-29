@@ -2,7 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:ucp1_081/detailcust.dart';
 
 class DataCustomer extends StatefulWidget {
-  const DataCustomer({super.key});
+  final String email;
+  const DataCustomer({super.key,
+  required this.email});
 
   @override
   State<DataCustomer> createState() => _DataCustomerState();
@@ -16,6 +18,14 @@ class _DataCustomerState extends State<DataCustomer> {
   final TextEditingController alamatCustController = TextEditingController();
   final TextEditingController provinsiCustController = TextEditingController();
   final TextEditingController kodeposCustController = TextEditingController();
+  late TextEditingController emailController;
+
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+    emailController = TextEditingController(text: widget.email);
+  }
   
   @override
   Widget build(BuildContext context) {
@@ -151,7 +161,8 @@ class _DataCustomerState extends State<DataCustomer> {
                             controller: kodeposCustController,
                             decoration: InputDecoration(
                             hintText: 'Kode Pos',
-                            constraints: BoxConstraints.tightFor(width: 180),                            border: OutlineInputBorder(
+                            constraints: BoxConstraints.tightFor(width: 180),                            
+                            border: OutlineInputBorder(
                                 borderRadius: BorderRadius.circular(15)
                             )),
                             validator: (value) {
@@ -190,6 +201,7 @@ class _DataCustomerState extends State<DataCustomer> {
                           alamatCust : alamatCustController.text,
                           provinsiCust: provinsiCustController.text,
                           kodeposCust : kodeposCustController.text,
+                          email: emailController.text,
                         )));
                   }
                     }, child: Text('Simpan')),

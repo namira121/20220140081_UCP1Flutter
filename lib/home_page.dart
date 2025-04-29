@@ -28,13 +28,12 @@ class _HomePageState extends State<HomePage> {
               color: Colors.indigo.shade300,
               child: 
               Row(
+                mainAxisAlignment: MainAxisAlignment.spaceAround,
                 children: [
-                  const SizedBox(width: 20,),
                   CircleAvatar(
                     radius: 40,
                     backgroundImage: AssetImage('assets/images/cinamonroll2.png'),
                   ),
-                  const SizedBox(width: 15),
                   Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
@@ -42,7 +41,7 @@ class _HomePageState extends State<HomePage> {
                       Text('${widget.email}', style: TextStyle(color: Colors.white, fontSize: 15),)
                     ],
                   ),
-                  const SizedBox(width: 120),
+                  
                   IconButton(onPressed: (){
                     Navigator.pushReplacementNamed(context, '/login');
                   }, icon: Icon(Icons.logout))
@@ -88,7 +87,9 @@ class _HomePageState extends State<HomePage> {
                   ),
                   onPressed: (){
                     Navigator.push(context, 
-                    MaterialPageRoute(builder:(context) => DataCustomer()));
+                    MaterialPageRoute(builder:(context) => DataCustomer(
+                      email :widget.email,
+                    )));
                   }, 
                   child: Column(
                     children: [
