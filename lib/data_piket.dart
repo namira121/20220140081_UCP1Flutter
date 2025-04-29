@@ -113,6 +113,7 @@ class _DataPiketState extends State<DataPiket> {
                   Text('Tugas Piket'),
                   const SizedBox(height: 15),
                   Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
                       TextFormField(
                         controller: tugasController,
@@ -136,7 +137,7 @@ class _DataPiketState extends State<DataPiket> {
                           shape: RoundedRectangleBorder(
                             borderRadius: BorderRadius.circular(10)
                           ),
-                          fixedSize: Size(100, 50)
+                          fixedSize: Size(180, 50)
                         ),
                         onPressed: (){
                           if(_formkey.currentState!.validate()){
