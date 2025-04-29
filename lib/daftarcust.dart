@@ -84,7 +84,8 @@ class _DataCustomerState extends State<DataCustomer> {
                             controller: noHpCustController,
                             decoration: InputDecoration(
                             hintText: 'No Hp',
-                            constraints: BoxConstraints.tightFor(width: 180),                            border: OutlineInputBorder(
+                            constraints: BoxConstraints.tightFor(width: 180),                            
+                            border: OutlineInputBorder(
                                 borderRadius: BorderRadius.circular(15)
                             )),
                             validator: (value) {

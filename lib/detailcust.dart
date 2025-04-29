@@ -24,6 +24,12 @@ class Detailcust extends StatefulWidget {
 class _DetailcustState extends State<Detailcust> {
   @override
   Widget build(BuildContext context) {
-    return const Placeholder();
+    return Scaffold(
+      appBar: AppBar(
+        title: Text('Detail ${widget.emailCust}'),
+        centerTitle: true,
+        backgroundColor: Colors.blue.shade100,
+      ),
+    );
   }
 }
