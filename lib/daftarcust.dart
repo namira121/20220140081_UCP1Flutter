@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:ucp1_081/detailcust.dart';
 
 class DataCustomer extends StatefulWidget {
   const DataCustomer({super.key});
@@ -8,6 +9,7 @@ class DataCustomer extends StatefulWidget {
 }
 
 class _DataCustomerState extends State<DataCustomer> {
+  
   final TextEditingController namaCustController = TextEditingController();
   final TextEditingController emailCustController = TextEditingController();
   final TextEditingController noHpCustController = TextEditingController();
@@ -26,7 +28,9 @@ class _DataCustomerState extends State<DataCustomer> {
       ),
       body: Padding(
         padding: EdgeInsets.all(16.0),
-        child: Column(
+        child: Form(
+          key: _formkey,
+          child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Text('Nama Cust'),
@@ -160,7 +164,55 @@ class _DataCustomerState extends State<DataCustomer> {
                       ),
                     ]
                   ),
+            const SizedBox(height: 50,),
+              Column(
+                children: [
+                  ElevatedButton(
+                    style: ElevatedButton.styleFrom(
+                      backgroundColor: Colors.blue.shade100,
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(10)
+                      ),
+                      fixedSize: Size(400, 50)
+                    ),
+                    onPressed: (
+                    ){
+                      if(_formkey.currentState!.validate()){
+                    Navigator.pushReplacement(
+                      context, 
+                      MaterialPageRoute(
+                        builder: (context) => 
+                        Detailcust(
+                          namaCust :namaCustController.text,
+                          emailCust : emailCustController.text,
+                          noHpCust : noHpCustController.text,
+                        )));
+                  }
+                    }, child: Text('Simpan')),
+                    const SizedBox(height: 15,),
+                  ElevatedButton(
+                    style: ElevatedButton.styleFrom(
+                      backgroundColor: Colors.white,
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(10)
+                      ),
+                      fixedSize: Size(400, 50)
+                    ),
+                    onPressed: (
+                    ) {
+                      namaCustController.clear();
+                      emailCustController.clear();
+                      noHpCustController.clear();
+                      alamatCustController.clear();
+                      provinsiCustController.clear();
+                      kodeposCustController.clear();
+                    }, 
+                    child: Text('Reset')),
+                  
+                ],
+              ),
           ],
+        ),
         ),),
     );
   }
