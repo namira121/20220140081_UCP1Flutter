@@ -13,13 +13,28 @@ class _OrderPageState extends State<OrderPage> {
   late TextEditingController jenisbarangController;
   final TextEditingController jumlahbarangController = TextEditingController();
   final TextEditingController hargaController = TextEditingController();
-
+  int totalHarga = 0;
+  final Map<String, int> hargaSatuan = {
+    'Carrier' :20000, 
+    'Sleeping Bag': 30000,
+    'Tenda': 50000,
+    'Sepatu': 20000,
+  };
   @override
   void initState(){
     super.initState();
     jenisbarangController = TextEditingController();
     jenistransaksiController = TextEditingController();
   }
+  void calculateTotalPrice(){
+    int jumlah = int.tryParse(jumlahbarangController.text) ?? 0;
+    int Harga = int.tryParse(hargaController.text) ?? 0;
+
+    setState(() {
+      totalHarga = jumlah * Harga;
+    });
+  }
+  
 
   DateTime selectedDate = DateTime.now();
 
@@ -125,6 +140,7 @@ class _OrderPageState extends State<OrderPage> {
                       onChanged: (value) {
                         setState(() {
                           jenisbarangController.text = value!;
+                          hargaController.text = hargaSatuan[value].toString();
                         });
                       },
                    ),
@@ -160,10 +176,11 @@ class _OrderPageState extends State<OrderPage> {
                           const SizedBox(height: 10),
                           TextFormField(
                             controller: hargaController,
+                            readOnly: true,
                             decoration: InputDecoration(
-                            hintText: 'Harga Satuan',
-                            constraints: BoxConstraints.tightFor(width: 180),                            
-                            border: OutlineInputBorder(
+                              hintText: 'Harga Satuan',
+                              constraints: BoxConstraints.tightFor(width: 180),                            
+                              border: OutlineInputBorder(
                                 borderRadius: BorderRadius.circular(15)
                             )),
                             validator: (value) {
