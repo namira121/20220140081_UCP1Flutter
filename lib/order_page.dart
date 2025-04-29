@@ -9,10 +9,17 @@ class OrderPage extends StatefulWidget {
 
 class _OrderPageState extends State<OrderPage> {
   final TextEditingController tgltransaksiController = TextEditingController();
-  final TextEditingController jenistransaksiController = TextEditingController();
-  final TextEditingController jenisbarangController = TextEditingController();
+  late TextEditingController jenistransaksiController;
+  late TextEditingController jenisbarangController;
   final TextEditingController jumlahbarangController = TextEditingController();
   final TextEditingController hargaController = TextEditingController();
+
+  @override
+  void initState(){
+    super.initState();
+    jenisbarangController = TextEditingController();
+    jenistransaksiController = TextEditingController();
+  }
 
   DateTime selectedDate = DateTime.now();
 
@@ -28,9 +35,12 @@ class _OrderPageState extends State<OrderPage> {
         });
       }
    }
+
+  
   @override
   Widget build(BuildContext context) {
     final _formkey = GlobalKey<FormState>();
+    // String? _dropdownjenis;
     return Scaffold(
       appBar: AppBar(
         title: Text('Pendataan Barang'),
@@ -65,6 +75,32 @@ class _OrderPageState extends State<OrderPage> {
                       return null;
                     },
                   ),
+                  DropdownButtonFormField<String>(
+                    value: jenistransaksiController.text.isEmpty ? null: jenistransaksiController.text,
+                    validator: (value) {
+                      if (value == null || value.isEmpty){
+                        return 'Jenis Transaksi tidak boleh kosong';
+                      }
+                      return null;
+                    },
+                    decoration: InputDecoration(
+                      labelText: 'Jenis Transaksi',
+                      border: OutlineInputBorder()
+                    ),
+                    items: [
+                      'Barang Masuk', 'Barang Keluar'
+                    ].map((option) => DropdownMenuItem(
+                      value: option,
+                      child: Text(option),
+                      ))
+                      .toList(),
+                      onChanged: (value) {
+                        setState(() {
+                          jenistransaksiController.text = value!;
+                        });
+                      },
+                   ),
+
             ],
           )),),
     );
