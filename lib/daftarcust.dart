@@ -186,6 +186,9 @@ class _DataCustomerState extends State<DataCustomer> {
                           namaCust :namaCustController.text,
                           emailCust : emailCustController.text,
                           noHpCust : noHpCustController.text,
+                          alamatCust : alamatCustController.text,
+                          provinsiCust: provinsiCustController.text,
+                          kodeposCust : kodeposCustController.text,
                         )));
                   }
                     }, child: Text('Simpan')),
