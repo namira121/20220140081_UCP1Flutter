@@ -134,6 +134,13 @@ class _DetailcustState extends State<Detailcust> {
                             ]
                           ),
                     ElevatedButton(
+                      style: ElevatedButton.styleFrom(
+                      backgroundColor: Colors.blue.shade100,
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(10)
+                      ),
+                      fixedSize: Size(400, 50)
+                    ),
                       onPressed: (){
                         Navigator.push(context, 
                         MaterialPageRoute(builder: (context)=>HomePage(
