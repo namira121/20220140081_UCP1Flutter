@@ -43,7 +43,28 @@ class _OrderPageState extends State<OrderPage> {
           key: _formkey,
           child: Column(
             children: [
-
+              Text('Tanggal Transaksi'),
+              const SizedBox(height: 15),
+                  TextFormField(
+                    controller: tgltransaksiController,
+                    decoration: InputDecoration(
+                      hintText: 'Tanggal Transaksi',
+                      border: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(15)
+                      ),
+                      prefixIcon: IconButton(
+                        onPressed: () =>
+                          _selectedDate(context)
+                        , icon: Icon(Icons.calendar_month_sharp))
+                    ),
+                    readOnly: true,
+                    validator: (value) {
+                      if(value == null|| value.isEmpty){
+                        return 'Tanggal tidak boleh kosong';
+                      }
+                      return null;
+                    },
+                  ),
             ],
           )),),
     );
