@@ -1,3 +1,6 @@
+link video:
+https://drive.google.com/file/d/1KtDNriYCEPAK1TJAzhOcgaKbUwWjmg97/view?usp=sharing
+
 ![login](https://github.com/user-attachments/assets/c06a4293-dd10-47c3-9f11-21102265ce04)
 ![loginvalid](https://github.com/user-attachments/assets/ca2d6d70-0bd4-4967-872d-77cb5e90f21b)
 ![registrasi](https://github.com/user-attachments/assets/a4447ec4-9493-4d3d-8c4d-35b8fde3a7bc)
