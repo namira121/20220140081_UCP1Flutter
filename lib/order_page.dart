@@ -100,6 +100,83 @@ class _OrderPageState extends State<OrderPage> {
                         });
                       },
                    ),
+                   DropdownButtonFormField<String>(
+                    value: jenisbarangController.text.isEmpty ? null: jenisbarangController.text,
+                    validator: (value) {
+                      if (value == null || value.isEmpty){
+                        return 'Jenis Barang tidak boleh kosong';
+                      }
+                      return null;
+                    },
+                    decoration: InputDecoration(
+                      labelText: 'Jenis Barang',
+                      border: OutlineInputBorder()
+                    ),
+                    items: [
+                      'Carrier', 
+                      'Sleeping Bag',
+                      'Tenda',
+                      'Sepatu'
+                    ].map((option) => DropdownMenuItem(
+                      value: option,
+                      child: Text(option),
+                      ))
+                      .toList(),
+                      onChanged: (value) {
+                        setState(() {
+                          jenisbarangController.text = value!;
+                        });
+                      },
+                   ),
+                   Row(
+                    mainAxisAlignment:MainAxisAlignment.spaceBetween,
+                    children: [
+                      Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text('Jumlah Barang'),
+                          const SizedBox(height: 10),
+                          TextFormField(
+                            controller: jumlahbarangController,
+                            decoration: InputDecoration(
+                              hintText: 'Jumlah Barang',
+                              constraints: BoxConstraints.tightFor(width: 180),
+                              border: OutlineInputBorder(
+                                borderRadius: BorderRadius.circular(15)
+                            )),
+                            validator: (value) {
+                              if (value == null || value.isEmpty){
+                                return 'Jumlah Barang tidak boleh kosong';
+                              }
+                                return null;
+                              },
+                          )
+                        ],
+                      ),
+                      Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text('Harga Satuan'),
+                          const SizedBox(height: 10),
+                          TextFormField(
+                            controller: hargaController,
+                            decoration: InputDecoration(
+                            hintText: 'Harga Satuan',
+                            constraints: BoxConstraints.tightFor(width: 180),                            
+                            border: OutlineInputBorder(
+                                borderRadius: BorderRadius.circular(15)
+                            )),
+                            validator: (value) {
+                            if (value == null || value.isEmpty){
+                                return 'Harga Satuan tidak boleh kosong';
+                            }
+                              return null;
+                            },
+                        ),
+                        ],
+                      ),
+                    ]
+                  ),
 
             ],
           )),),
