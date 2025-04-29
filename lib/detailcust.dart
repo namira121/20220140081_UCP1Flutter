@@ -26,7 +26,7 @@ class _DetailcustState extends State<Detailcust> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Detail ${widget.emailCust}'),
+        title: Text('Detail ${widget.namaCust}'),
         centerTitle: true,
         backgroundColor: Colors.blue.shade100,
       ),
