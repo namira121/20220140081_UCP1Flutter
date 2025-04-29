@@ -133,6 +133,7 @@ class _DetailcustState extends State<Detailcust> {
                               ),
                             ]
                           ),
+                    const SizedBox(height: 40,),
                     ElevatedButton(
                       style: ElevatedButton.styleFrom(
                       backgroundColor: Colors.blue.shade100,
