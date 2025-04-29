@@ -22,6 +22,7 @@ class Detailcust extends StatefulWidget {
 }
 
 class _DetailcustState extends State<Detailcust> {
+  final _formkey =GlobalKey <FormState>();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -30,6 +31,20 @@ class _DetailcustState extends State<Detailcust> {
         centerTitle: true,
         backgroundColor: Colors.blue.shade100,
       ),
+      body: Padding(
+        padding: EdgeInsets.all(16.0),
+        child: Column(
+          children: [
+            Center(
+              child: 
+                CircleAvatar(
+                  radius: 60,
+                  backgroundImage: AssetImage('assets/images/pompompurin.png'),
+                ),
+            ),
+            
+          ],
+        ),),
     );
   }
 }
