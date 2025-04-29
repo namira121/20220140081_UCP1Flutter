@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:ucp1_081/detailorder_page.dart';
 
 class OrderPage extends StatefulWidget {
-  const OrderPage({super.key});
+  final String email;
+  const OrderPage({super.key,
+  required this.email});
 
   @override
   State<OrderPage> createState() => _OrderPageState();
@@ -13,6 +16,7 @@ class _OrderPageState extends State<OrderPage> {
   late TextEditingController jenisbarangController;
   final TextEditingController jumlahbarangController = TextEditingController();
   final TextEditingController hargaController = TextEditingController();
+  late TextEditingController emailController;
   int totalHarga = 0;
   final Map<String, int> hargaSatuan = {
     'Carrier' :20000, 
@@ -25,6 +29,7 @@ class _OrderPageState extends State<OrderPage> {
     super.initState();
     jenisbarangController = TextEditingController();
     jenistransaksiController = TextEditingController();
+    emailController = TextEditingController(text: widget.email);
   }
   void calculateTotalPrice(){
     int jumlah = int.tryParse(jumlahbarangController.text) ?? 0;
@@ -192,6 +197,33 @@ class _OrderPageState extends State<OrderPage> {
                         ),
                         ],
                       ),
+
+                      ElevatedButton(
+                    style: ElevatedButton.styleFrom(
+                      backgroundColor: Colors.blue.shade100,
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(10)
+                      ),
+                      fixedSize: Size(400, 50)
+                    ),
+                    onPressed: (
+                    ){
+                      if(_formkey.currentState!.validate()){
+                        calculateTotalPrice();
+                    Navigator.pushReplacement(
+                      context, 
+                      MaterialPageRoute(
+                        builder: (context) => 
+                        DetailorderPage(
+                          tgltransaksi :tgltransaksiController.text,
+                          jenistransaksi : jenistransaksiController.text,
+                          jenisbarang : jenisbarangController.text,
+                          jumlahbarang : jumlahbarangController.text,
+                          harga: hargaController.text,
+                          email: emailController.text,
+                        )));
+                  }
+                    }, child: Text('Submit')),
                     ]
                   ),
 
