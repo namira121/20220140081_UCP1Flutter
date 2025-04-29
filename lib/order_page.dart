@@ -72,6 +72,7 @@ class _OrderPageState extends State<OrderPage> {
         child: Form(
           key: _formkey,
           child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Text('Tanggal Transaksi'),
               const SizedBox(height: 15),
@@ -95,6 +96,7 @@ class _OrderPageState extends State<OrderPage> {
                       return null;
                     },
                   ),
+                  const SizedBox(height: 35),
                   DropdownButtonFormField<String>(
                     value: jenistransaksiController.text.isEmpty ? null: jenistransaksiController.text,
                     validator: (value) {
@@ -120,6 +122,7 @@ class _OrderPageState extends State<OrderPage> {
                         });
                       },
                    ),
+                   const SizedBox(height: 35),
                    DropdownButtonFormField<String>(
                     value: jenisbarangController.text.isEmpty ? null: jenisbarangController.text,
                     validator: (value) {
@@ -149,6 +152,7 @@ class _OrderPageState extends State<OrderPage> {
                         });
                       },
                    ),
+                   const SizedBox(height: 35),
                    Row(
                     mainAxisAlignment:MainAxisAlignment.spaceBetween,
                     children: [
@@ -199,6 +203,7 @@ class _OrderPageState extends State<OrderPage> {
                       ),
                     ]
                   ),
+                  const SizedBox(height: 40),
                   ElevatedButton(
                     style: ElevatedButton.styleFrom(
                       backgroundColor: Colors.blue.shade100,
