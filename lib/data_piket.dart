@@ -152,7 +152,12 @@ class _DataPiketState extends State<DataPiket> {
               )
             ),
             Expanded(
-              child: ListView.builder(
+              child: 
+              listTugas.isEmpty
+              ? Center(
+                child: Text('Tidak ada tugas'),
+              )
+              : ListView.builder(
                 padding: EdgeInsets.all(16.0),
                 itemCount: listTugas.length,
                 itemBuilder: (context,index){
