@@ -42,63 +42,65 @@ class _DetailorderPageState extends State<DetailorderPage> {
                       radius: 75,
                       backgroundImage: AssetImage('assets/images/check2.png'),
                       ),
-                      Text('Data Berhasil Disimpan')
+                      const SizedBox(height: 10,),
+                      Text('Data Berhasil Disimpan',style: TextStyle(fontSize: 18),)
                     ],
                   ),
                 )
               ],
             ),
-            const SizedBox(height: 20,),
+            const SizedBox(height: 50,),
             Column(
               children: [
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    Text('Tanggal'),
-                    Text(widget.tgltransaksi)
+                    Text('Tanggal', style: TextStyle(fontSize: 14),),
+                    Text(widget.tgltransaksi, style: TextStyle(fontSize: 14),)
                   ],
                 ),
-                Divider(),
+                Divider(height: 30,),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    Text('Jenis Transaksi'),
-                    Text(widget.jenistransaksi)
+                    Text('Jenis Transaksi', style: TextStyle(fontSize: 14),),
+                    Text(widget.jenistransaksi, style: TextStyle(fontSize: 14),)
                   ],
                 ),
-                Divider(),
+                Divider(height: 30,),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    Text('Jenis Barang'),
-                    Text(widget.jenisbarang)
+                    Text('Jenis Barang', style: TextStyle(fontSize: 14),),
+                    Text(widget.jenisbarang, style: TextStyle(fontSize: 14),)
                   ],
                 ),
-                Divider(),
+                Divider(height: 30,),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    Text('Jumlah Barang'),
-                    Text(widget.jumlahbarang)
+                    Text('Jumlah Barang', style: TextStyle(fontSize: 14),),
+                    Text(widget.jumlahbarang, style: TextStyle(fontSize: 14),)
                   ],
                 ),
-                Divider(),
+                Divider(height: 30,),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    Text('Jenis Harga Satuan'),
-                    Text(widget.harga)
+                    Text('Jenis Harga Satuan', style: TextStyle(fontSize: 14),),
+                    Text(widget.harga, style: TextStyle(fontSize: 14),)
                   ],
                 ),
-                Divider(),
+                Divider(height: 30,),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    Text('Total Harga'),
-                    Text('Rp. ${widget.totalHarga}')
+                    Text('Total Harga', style: TextStyle(fontSize: 14),),
+                    Text('Rp. ${widget.totalHarga}', style: TextStyle(fontSize: 14),)
                   ],
                 ),
-                Divider(),
+                Divider(height: 30,),
+                const SizedBox(height: 30,),
                  ElevatedButton(
                   style: ElevatedButton.styleFrom(
                       backgroundColor: Colors.blue.shade100,
