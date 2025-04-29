@@ -197,8 +197,9 @@ class _OrderPageState extends State<OrderPage> {
                         ),
                         ],
                       ),
-
-                      ElevatedButton(
+                    ]
+                  ),
+                  ElevatedButton(
                     style: ElevatedButton.styleFrom(
                       backgroundColor: Colors.blue.shade100,
                       shape: RoundedRectangleBorder(
@@ -220,12 +221,11 @@ class _OrderPageState extends State<OrderPage> {
                           jenisbarang : jenisbarangController.text,
                           jumlahbarang : jumlahbarangController.text,
                           harga: hargaController.text,
+                          totalHarga: totalHarga,
                           email: emailController.text,
                         )));
                   }
                     }, child: Text('Submit')),
-                    ]
-                  ),
 
             ],
           )),),

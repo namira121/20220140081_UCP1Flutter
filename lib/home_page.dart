@@ -112,7 +112,7 @@ class _HomePageState extends State<HomePage> {
                   ),
                   onPressed: (){
                     Navigator.push(context, 
-                    MaterialPageRoute(builder:(context) => OrderPage()));
+                    MaterialPageRoute(builder:(context) => OrderPage(email: widget.email,)));
                   }, 
                   child: Column(
                     children: [
