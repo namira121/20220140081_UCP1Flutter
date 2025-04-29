@@ -30,10 +30,10 @@ class DetailPiket extends StatelessWidget {
                   height: 50,
                   padding: EdgeInsets.all(16.0),
                   decoration: BoxDecoration(
-                    color: Colors.indigo.shade100,
+                    color: Colors.white,
                     borderRadius: BorderRadius.circular(15)
                   ),
-                  child: Text(tanggal),
+                  child: Text(tanggal, style: TextStyle(fontSize: 14),),
                 ),
                 Container(
                   width: 170,
@@ -41,12 +41,13 @@ class DetailPiket extends StatelessWidget {
                   padding: EdgeInsets.all(16.0),
                   decoration: BoxDecoration(
                     color: Colors.indigo.shade100,
-                    borderRadius: BorderRadius.circular(15)
+                    borderRadius: BorderRadius.circular(30)
                   ),
                   child: Text(nama),
                 )
               ],
             ),
+            const SizedBox(height: 20),
             Column(
               children: [
                 Container(
