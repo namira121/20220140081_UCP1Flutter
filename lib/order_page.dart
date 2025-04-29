@@ -14,6 +14,20 @@ class _OrderPageState extends State<OrderPage> {
   final TextEditingController jumlahbarangController = TextEditingController();
   final TextEditingController hargaController = TextEditingController();
 
+  DateTime selectedDate = DateTime.now();
+
+   Future<void> _selectedDate(BuildContext context) async{
+      final DateTime? picked = await showDatePicker(
+        context: context, 
+        initialDate: selectedDate,
+        firstDate: DateTime(2016,8), 
+        lastDate: DateTime(2200));
+      if (picked != null && picked != selectedDate){
+        setState(() {
+          tgltransaksiController.text = "${picked.toLocal()}".split(' ')[0];
+        });
+      }
+   }
   @override
   Widget build(BuildContext context) {
     final _formkey = GlobalKey<FormState>();
@@ -29,7 +43,7 @@ class _OrderPageState extends State<OrderPage> {
           key: _formkey,
           child: Column(
             children: [
-              
+
             ],
           )),),
     );
